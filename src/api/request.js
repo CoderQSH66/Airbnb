@@ -6,7 +6,6 @@
  */
 
 import axios from "axios"
-
 // const ERROR_UNKNOWN = "未知错误"
 
 class Request {

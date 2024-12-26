@@ -21,6 +21,7 @@ const index = memo(() => {
     <HeaderWrapper $searchHeight={searchHeight}>
       <div className="content">
         <div className="left">
+          <h2>哈哈</h2>
           <HeaderLeft></HeaderLeft>
         </div>
         <div className="center">
