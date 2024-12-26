@@ -1,7 +1,6 @@
 import React, { memo } from "react"
 import LeftWrapper from "./style"
 import Logo from "@/assets/svg/logo"
-import { useNavigate } from "react-router-dom"
 
 const index = memo(() => {
   // const navigate = useNavigate()

@@ -1,7 +1,6 @@
 import React, { memo, useState, useEffect } from "react"
 
 import { Editor, Toolbar } from "@wangeditor/editor-for-react"
-import { IDomEditor, IEditorConfig, IToolbarConfig } from "@wangeditor/editor"
 import { useDispatch } from "react-redux"
 import { setConfigAction } from "@/store/main"
 

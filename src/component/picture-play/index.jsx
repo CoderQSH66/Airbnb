@@ -1,7 +1,6 @@
 import React, { memo, useEffect, useRef, useState } from "react"
 import PicturePlayWrapper from "./style"
 import { createPortal } from "react-dom"
-import { Carousel } from "antd"
 import Indicator from "../indicator"
 import classNames from "classnames"
 import { CSSTransition, SwitchTransition } from "react-transition-group"
@@ -9,10 +8,11 @@ import { CSSTransition, SwitchTransition } from "react-transition-group"
 const PicturePlay = memo(({ showPic, pictureUrls, onClose }) => {
   useEffect(() => {
     // 禁止滚动
-    showPic ? (document.body.style.overflow = "hidden") : (document.body.style.overflow = "auto")
+    showPic
+      ? (document.body.style.overflow = "hidden")
+      : (document.body.style.overflow = "auto")
   }, [showPic])
   // 轮播
-  const carouselRef = useRef()
   const indicatorRef = useRef()
   const [parentWidth, setParentWidth] = useState(0)
   const [selectIndex, setSelectIndex] = useState(0)
@@ -30,9 +30,9 @@ const PicturePlay = memo(({ showPic, pictureUrls, onClose }) => {
     setSelectIndex(nowIndex)
     // console.log(nowIndex)
   }
-  const beforeChange = (index, next) => {
-    setSelectIndex(next)
-  }
+  // const beforeChange = (index, next) => {
+  //   setSelectIndex(next)
+  // }
 
   return createPortal(
     <PicturePlayWrapper hidden={!showPic}>
@@ -48,7 +48,13 @@ const PicturePlay = memo(({ showPic, pictureUrls, onClose }) => {
             })}
           </Carousel> */}
           <SwitchTransition mode="out-in">
-            <CSSTransition key={selectIndex} timeout={100} classNames="swiper" unmountOnExit appear>
+            <CSSTransition
+              key={selectIndex}
+              timeout={100}
+              classNames="swiper"
+              unmountOnExit
+              appear
+            >
               <div className="img">
                 <img src={pictureUrls[selectIndex]} alt="" />
               </div>
@@ -56,14 +62,23 @@ const PicturePlay = memo(({ showPic, pictureUrls, onClose }) => {
           </SwitchTransition>
         </div>
         <div className="arrows">
-          <div className="left arrow" onClick={(e) => handleToggle(true, e)}></div>
-          <div className="right arrow" onClick={(e) => handleToggle(false, e)}></div>
+          <div
+            className="left arrow"
+            onClick={(e) => handleToggle(true, e)}
+          ></div>
+          <div
+            className="right arrow"
+            onClick={(e) => handleToggle(false, e)}
+          ></div>
         </div>
         <div className="indicator-list" ref={indicatorRef}>
           <Indicator selectIndex={selectIndex} parentWidth={parentWidth}>
             {pictureUrls.map((m, i) => {
               return (
-                <div className={classNames("item", { active: i === selectIndex })} key={m}>
+                <div
+                  className={classNames("item", { active: i === selectIndex })}
+                  key={m}
+                >
                   <div className="cover"></div>
                   <img src={m} alt="" />
                 </div>

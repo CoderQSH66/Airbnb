@@ -1,4 +1,4 @@
-import React, { memo, useEffect } from "react"
+import React, { memo } from "react"
 import CenterWrapper from "./style"
 import Search from "@/assets/svg/search"
 import { CSSTransition } from "react-transition-group"
@@ -17,7 +17,12 @@ const index = memo(({ searchHeight }) => {
 
   return (
     <CenterWrapper>
-      <CSSTransition in={!Boolean(searchHeight)} classNames="bar" timeout={200} unmountOnExit>
+      <CSSTransition
+        in={!Boolean(searchHeight)}
+        classNames="bar"
+        timeout={200}
+        unmountOnExit
+      >
         {
           <div className="search">
             <div className="desc">
@@ -34,7 +39,12 @@ const index = memo(({ searchHeight }) => {
         }
       </CSSTransition>
       {fixed && (
-        <CSSTransition in={Boolean(searchHeight)} classNames="plus" timeout={200} unmountOnExit>
+        <CSSTransition
+          in={Boolean(searchHeight)}
+          classNames="plus"
+          timeout={200}
+          unmountOnExit
+        >
           {
             <div className="search-plus">
               <div className="tabs">

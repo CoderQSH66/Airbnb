@@ -1,4 +1,4 @@
-import React, { memo, Suspense, useEffect, useRef, useState } from "react"
+import React, { memo, Suspense, useEffect, useRef } from "react"
 import { RouterProvider } from "react-router-dom"
 import router from "./router"
 import AppHeader from "@/component/app-header"
@@ -21,7 +21,9 @@ const App = memo(() => {
 
   useEffect(() => {
     console.log(fixed)
-    fixed ? (headerRef.current.style.marginTop = "200px") : (headerRef.current.style.marginTop = "0")
+    fixed
+      ? (headerRef.current.style.marginTop = "200px")
+      : (headerRef.current.style.marginTop = "0")
     function setSh() {
       window.scrollY === 0 && fixed
         ? (headerRef.current.style.marginTop = "200px")
